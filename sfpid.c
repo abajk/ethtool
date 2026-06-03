@@ -63,12 +63,18 @@ static void sff8079_show_transceiver(const __u8 *id)
 		print_uint(PRINT_JSON, NULL, "%u", id[9]);
 		print_uint(PRINT_JSON, NULL, "%u", id[10]);
 		print_uint(PRINT_JSON, NULL, "%u", id[36]);
+		if (id[10] & (1 << 1))
+			print_uint(PRINT_JSON, NULL, "%u", id[62]);
 		close_json_array("");
 	} else {
 		printf("\t%-41s : 0x%02x 0x%02x 0x%02x " \
-		       "0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n",
+		       "0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x",
 		       "Transceiver codes", id[3], id[4], id[5], id[6],
 		       id[7], id[8], id[9], id[10], id[36]);
+		if (id[10] & (1 << 1))
+			printf(" 0x%02x\n", id[62]);
+		else
+			printf("\n");
 	}
 	/* 10G Ethernet Compliance Codes */
 	if (id[3] & (1 << 7))
@@ -198,6 +204,10 @@ static void sff8079_show_transceiver(const __u8 *id)
 		sprintf(value, "%s", "FC: 200 MBytes/sec");
 	if (id[10] & (1 << 0))
 		sprintf(value, "%s", "FC: 100 MBytes/sec");
+	if (id[10] & (1 << 1)) {
+		if (id[62] & (1 << 0))
+			sprintf(value, "%s", "FC: 64GFC");
+	}
 	/* Extended Specification Compliance Codes from SFF-8024 */
 	if (id[36] == 0x1)
 		sprintf(value, "%s",
