@@ -420,24 +420,6 @@ static void sff8636_show_transceiver(const struct sff8636_memory_map *map)
 		case SFF8636_ETHERNET_200G_LR4:
 			module_print_any_array_string_entry(pfx, "200GBASE-LR4");
 			break;
-		case SFF8636_ETHERNET_64G_EA:
-			module_print_any_array_string_entry(pfx, "64GFC EA");
-			break;
-		case SFF8636_ETHERNET_64G_SW:
-			module_print_any_array_string_entry(pfx, "64GFC SW");
-			break;
-		case SFF8636_ETHERNET_64G_LW:
-			module_print_any_array_string_entry(pfx, "64GFC LW");
-			break;
-		case SFF8636_ETHERNET_128FC_EA:
-			module_print_any_array_string_entry(pfx, "128GFC EA");
-			break;
-		case SFF8636_ETHERNET_128FC_SW:
-			module_print_any_array_string_entry(pfx, "128GFC SW");
-			break;
-		case SFF8636_ETHERNET_128FC_LW:
-			module_print_any_array_string_entry(pfx, "128GFC LW");
-			break;
 		default:
 			module_print_any_array_string_entry(pfx, "(reserved or unknown)");
 			break;
