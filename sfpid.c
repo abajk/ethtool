@@ -301,18 +301,6 @@ static void sff8079_show_transceiver(const __u8 *id)
 		sprintf(value, "%s", "Extended: 50GBASE-LR");
 	if (id[36] == 0x46)
 		sprintf(value, "%s", "Extended: 200GBASE-LR4");
-	if (id[36] == 0x50)
-		sprintf(value, "%s", "Extended: 64GFC EA");
-	if (id[36] == 0x51)
-		sprintf(value, "%s", "Extended: 64GFC SW");
-	if (id[36] == 0x52)
-		sprintf(value, "%s", "Extended: 64GFC LW");
-	if (id[36] == 0x53)
-		sprintf(value, "%s", "Extended: 128GFC EA");
-	if (id[36] == 0x54)
-		sprintf(value, "%s", "Extended: 128GFC SW");
-	if (id[36] == 0x55)
-		sprintf(value, "%s", "Extended: 128GFC LW");
 
 	if (value[0] != '\0')
 		module_print_any_string(pfx, value);

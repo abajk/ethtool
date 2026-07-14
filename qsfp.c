@@ -417,24 +417,6 @@ static void sff8636_show_transceiver(const struct sff8636_memory_map *map)
 		case SFF8636_ETHERNET_200G_LR4:
 			sprintf(value, "%s", "200GBASE-LR4");
 			break;
-		case SFF8636_ETHERNET_64G_EA:
-			sprintf(value, "%s", "64GFC EA");
-			break;
-		case SFF8636_ETHERNET_64G_SW:
-			sprintf(value, "%s", "64GFC SW");
-			break;
-		case SFF8636_ETHERNET_64G_LW:
-			sprintf(value, "%s", "64GFC LW");
-			break;
-		case SFF8636_ETHERNET_128FC_EA:
-			sprintf(value, "%s", "128GFC EA");
-			break;
-		case SFF8636_ETHERNET_128FC_SW:
-			sprintf(value, "%s", "128GFC SW");
-			break;
-		case SFF8636_ETHERNET_128FC_LW:
-			sprintf(value, "%s", "128GFC LW");
-			break;
 		default:
 			sprintf(value, "%s", "(reserved or unknown)");
 			break;
