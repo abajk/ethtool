@@ -411,14 +411,7 @@
 #define  SFF8636_ETHERNET_200G_PSM4          0x44
 #define  SFF8636_ETHERNET_50G_LR             0x45
 #define  SFF8636_ETHERNET_200G_LR4           0x46
-/*  47h-4Fh reserved */
-#define  SFF8636_ETHERNET_64G_EA             0x50
-#define  SFF8636_ETHERNET_64G_SW             0x51
-#define  SFF8636_ETHERNET_64G_LW             0x52
-#define  SFF8636_ETHERNET_128FC_EA           0x53
-#define  SFF8636_ETHERNET_128FC_SW           0x54
-#define  SFF8636_ETHERNET_128FC_LW           0x55
-/*  56h-5Fh reserved */
+/*  47h-7Eh reserved */
 
 #define	 SFF8636_OPTION_2_OFFSET	0xC1
 /* Tx input equalizers auto-adaptive */

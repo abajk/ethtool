@@ -304,18 +304,6 @@ static void sff8079_show_transceiver(const __u8 *id)
 		module_print_any_array_string_entry(pfx, "Extended: 50GBASE-LR");
 	if (id[36] == 0x46)
 		module_print_any_array_string_entry(pfx, "Extended: 200GBASE-LR4");
-	if (id[36] == 0x50)
-		module_print_any_array_string_entry(pfx, "Extended: 64GFC EA");
-	if (id[36] == 0x51)
-		module_print_any_array_string_entry(pfx, "Extended: 64GFC SW");
-	if (id[36] == 0x52)
-		module_print_any_array_string_entry(pfx, "Extended: 64GFC LW");
-	if (id[36] == 0x53)
-		module_print_any_array_string_entry(pfx, "Extended: 128GFC EA");
-	if (id[36] == 0x54)
-		module_print_any_array_string_entry(pfx, "Extended: 128GFC SW");
-	if (id[36] == 0x55)
-		module_print_any_array_string_entry(pfx, "Extended: 128GFC LW");
 
 	if (is_json_context())
 		close_json_array("");
