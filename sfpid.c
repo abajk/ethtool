@@ -490,9 +490,14 @@ static void sff8079_show_all_common(const __u8 *id)
 		module_show_value_with_unit(id, 14, "Length (SMF)", 1, "km");
 		module_show_value_with_unit(id, 16, "Length (OM2)", 10, "m");
 		module_show_value_with_unit(id, 17, "Length (OM1)", 10, "m");
-		module_show_value_with_unit(id, 18,
-					    "Length (Copper or Active cable)",
-					    1, "m");
+		if ((id[8] & (1 << 2)) {
+			module_show_value_with_unit(id, 18,
+						    "Length (Copper or Active cable)",
+						    1, "m");
+		} else {
+			module_show_value_with_unit(id, 18,
+						    "Length (OM4)", 10, "m");
+		}
 		module_show_value_with_unit(id, 19, "Length (OM3)", 10, "m");
 		sff8079_show_wavelength_or_copper_compliance(id);
 		module_show_ascii(id, 20, 35, "Vendor name");
