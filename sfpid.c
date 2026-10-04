@@ -424,15 +424,18 @@ static void sff8079_show_options(const __u8 *id)
 		open_json_array("option_values", "");
 		print_uint(PRINT_JSON, NULL, "%u", id[64]);
 		print_uint(PRINT_JSON, NULL, "%u", id[65]);
+		print_uint(PRINT_JSON, NULL, "%u", id[93]);
 		close_json_array("");
 	} else {
-		printf("\t%-41s : 0x%02x 0x%02x\n", "Option values", id[64],
-		       id[65]);
+		printf("\t%-41s : 0x%02x 0x%02x 0x%02x\n", "Option values", id[64],
+		       id[65], id[93]);
 	}
 
 	if (is_json_context())
 		open_json_array("option", "");
 
+	if (id[65] & (1 << 0))
+		module_print_any_array_string_entry(pfx, "More pages");
 	if (id[65] & (1 << 1))
 		module_print_any_array_string_entry(pfx, "RX_LOS implemented");
 	if (id[65] & (1 << 2))
@@ -459,6 +462,20 @@ static void sff8079_show_options(const __u8 *id)
 		module_print_any_array_string_entry(pfx, "Paging implemented");
 	if (id[64] & (1 << 5))
 		module_print_any_array_string_entry(pfx, "Power level 3 requirement");
+	if (id[64] & (1 << 6))
+		module_print_any_array_string_entry(pfx, "Power level 4 requirement");
+	if (id[93] & (1 << 1))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software RATE_SELECT implemented");
+	if (id[93] & (1 << 3))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software RATE_SELECT implemented");
+	if (id[93] & (1 << 4))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software RX_LOS implemented");
+	if (id[93] & (1 << 5))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software TX_FAULT implemented");
+	if (id[93] & (1 << 6))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software TX_DISABLE implemented");
+	if (id[93] & (1 << 7))
+		module_print_any_array_string_entry(pfx, "Enhanced: Software RX_LOS implemented");
 
 	if (is_json_context())
 		close_json_array("");
