@@ -15,6 +15,7 @@ ethtool
 test-cmdline
 test-driver
 test-features
+test-module-eeprom
 stamp-h1
 config.*
 aclocal.m4

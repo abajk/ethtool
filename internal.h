@@ -232,6 +232,8 @@ struct cmd_context {
 
 #ifdef TEST_ETHTOOL
 int test_cmdline(const char *args);
+int test_getmodule(struct cmd_context *ctx);
+int test_run_getmodule(struct cmd_context *ctx);
 
 struct cmd_expect {
 	const void *cmd;	/* expected command; NULL at end of list */

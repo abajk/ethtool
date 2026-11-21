@@ -5135,6 +5135,13 @@ static int do_getmodule(struct cmd_context *ctx)
 	return 0;
 }
 
+#ifdef TEST_ETHTOOL
+int test_getmodule(struct cmd_context *ctx)
+{
+	return do_getmodule(ctx);
+}
+#endif
+
 static int do_geee(struct cmd_context *ctx)
 {
 	struct ethtool_eee eeecmd;

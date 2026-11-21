@@ -1,0 +1,24 @@
+	Identifier                                : 0x03 (SFP)
+	Extended identifier                       : 0x04 (GBIC/SFP defined by 2-wire interface ID)
+	Connector                                 : 0x00 (unknown or unspecified)
+	Transceiver codes                         : 0x00 0x00 0x00 0x08 0x00 0x00 0x00 0x00 0x00
+	Transceiver type                          : Ethernet: 1000BASE-T
+	Encoding                                  : 0x01 (8B/10B)
+	BR Nominal                                : 1300MBd
+	Rate identifier                           : 0x00 (unspecified)
+	Length (SMF)                              : 0km
+	Length (OM2)                              : 0m
+	Length (OM1)                              : 0m
+	Length (Copper or Active cable)           : 100m
+	Length (OM3)                              : 0m
+	Laser wavelength                          : 16652nm
+	Vendor name                               : FS
+	Vendor OUI                                : 00:00:00
+	Vendor PN                                 : SFP-GB-GE-T
+	Vendor rev                                : F
+	Option values                             : 0x00 0x10
+	Option                                    : TX_DISABLE implemented
+	BR margin max                             : 0%
+	BR margin min                             : 0%
+	Vendor SN                                 : F2032210361
+	Date code                                 : 210303

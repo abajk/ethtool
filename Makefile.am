@@ -82,6 +82,14 @@ test_features_SOURCES = test-features.c test-common.c $(ethtool_SOURCES)
 test_features_CFLAGS = -D_POSIX_C_SOURCE=200809L -DTEST_ETHTOOL
 endif
 
+EXTRA_DIST += test-module-eeprom.sh test/module-eeprom
+if ETHTOOL_ENABLE_PRETTY_DUMP
+TESTS += test-module-eeprom.sh
+check_PROGRAMS += test-module-eeprom
+test_module_eeprom_SOURCES = test-module-eeprom.c test-common.c $(ethtool_SOURCES)
+test_module_eeprom_CFLAGS = $(AM_CFLAGS) -DTEST_ETHTOOL
+endif
+
 dist-hook:
 	cp $(top_srcdir)/ethtool.spec $(distdir)
 

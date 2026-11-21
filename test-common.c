@@ -261,20 +261,21 @@ void test_exit(int rc)
 
 int test_ioctl(const struct cmd_expect *expect, void *cmd)
 {
+	FILE *err = orig_stderr ? orig_stderr : stderr;
 	int rc;
 
 	if (!expect->cmd || *(u32 *)cmd != *(const u32 *)expect->cmd) {
 		/* We have no idea how long this command structure is */
-		fprintf(orig_stderr, "Unexpected ioctl: cmd=%#10x\n",
+		fprintf(err, "Unexpected ioctl: cmd=%#10x\n",
 			*(u32 *)cmd);
 		return TEST_IOCTL_MISMATCH;
 	}
 
 	if (memcmp(cmd, expect->cmd, expect->cmd_len)) {
-		fprintf(orig_stderr, "Expected ioctl structure:\n");
-		dump_hex(orig_stderr, expect->cmd, expect->cmd_len, 0);
-		fprintf(orig_stderr, "Actual ioctl structure:\n");
-		dump_hex(orig_stderr, cmd, expect->cmd_len, 0);
+		fprintf(err, "Expected ioctl structure:\n");
+		dump_hex(err, expect->cmd, expect->cmd_len, 0);
+		fprintf(err, "Actual ioctl structure:\n");
+		dump_hex(err, cmd, expect->cmd_len, 0);
 		return TEST_IOCTL_MISMATCH;
 	}
 
@@ -289,6 +290,16 @@ int test_ioctl(const struct cmd_expect *expect, void *cmd)
 		errno = -rc;
 		return -1;
 	}
+}
+
+int test_run_getmodule(struct cmd_context *ctx)
+{
+	int rc = setjmp(test_return);
+
+	rc = rc ? rc - 1 : test_getmodule(ctx);
+	test_free_all();
+	test_close_all();
+	return rc;
 }
 
 int test_cmdline(const char *args)

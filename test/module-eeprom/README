@@ -1,0 +1,16 @@
+Module EEPROM regression tests
+==============================
+
+Run with make check (pretty dumps must be enabled). The test injects the
+EEPROM bytes into the ioctl path and checks raw, text and JSON output.
+
+To add a vector, place three files with the same basename in the module
+type directory (sff8079 for 256 bytes or sff8472 for 512 bytes):
+
+  NAME.raw   Hex dump (ethtool -m DEV hex on > NAME.raw).
+  NAME.txt   Expected text (ethtool -m DEV).
+  NAME.json  Expected JSON (ethtool --json -m DEV).
+
+Use LC_ALL=C when capturing output and check that live diagnostic readings
+in the expected files match the values in the hex dump. Every .raw
+file is discovered automatically by make check.
